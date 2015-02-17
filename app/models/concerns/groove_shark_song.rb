@@ -2,8 +2,8 @@ module GrooveSharkSong
   extend ActiveSupport::Concern
   
   attr_writer :grooveshark_client
-  attr_writer :grooveshark_song
-  
+  attr_writer :grooveshark_song  
+
   STOCK_IMG = '/images/devil_horns.jpg'
   
   module InstanceMethods
@@ -11,7 +11,7 @@ module GrooveSharkSong
     def grooveshark_client
       @grooveshark_client ||= Grooveshark::Client.new
     end
-  
+
     def grooveshark_song(link)
       @groovershark_song ||= grooveshark_client.get_song_by_id(link) # wrong method
     end
