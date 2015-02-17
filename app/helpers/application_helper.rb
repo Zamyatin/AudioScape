@@ -27,7 +27,4 @@ module ApplicationHelper
     return ref_path
   end
   
-  def grooveshark_url(link)
-    groove_session.get_song_url_by_id(link) #whichever
-  end
 end
