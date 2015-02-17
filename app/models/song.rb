@@ -1,5 +1,6 @@
 class Song < ActiveRecord::Base
-  belongs_to :playlist
-
-
+  include GrooveSharkSong
+  
+  belongs_to :playlist  
 end
+
