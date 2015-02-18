@@ -20,17 +20,10 @@ class SongsController < ApplicationController
   end
 
   def create
-    song = Song.new(title: params[:song_name], artist: params[:song_artist], link: params[:song_id], playlist_id: params[:playlist_id], coverart: params[:coverart])
-
-    if song.coverart != ''
-      song.coverart = "http://images.gs-cdn.net/static/albums/#{params[:coverart]}"
-      song.save
-    else
-      song.coverart = STOCK_IMG
-      song.save
-    end
-
-    redirect_to "/playlists/#{params[:playlist_id]}/"
+    playlist = Playlist.find(params[:playlist_id])
+    playlist.songs.new(params[:interpreted_result])
+    
+    redirect_to playlist
   end
 
   def destroy
@@ -46,12 +39,14 @@ class SongsController < ApplicationController
   end
 
   def search
-    results = groove_session.search_songs(params[:songs][:title])
-    @g
+    client = Grooveshark::Client.new({session: session[:groove_session]})
+    results = client.search_songs(params[:songs][:title])
+    @interpreted_results = results.each {|song| Song.new_from_grooveshark(song)}
+      
   end
 
   def song_search_by(query_type, input)
-    client = Grooveshark::Client.new({session: session[:groove_session]})
+    client = Grooveshark::Client.new({session: groove_session})
     @search_results = client.search(query_type, input)
   end
 end
