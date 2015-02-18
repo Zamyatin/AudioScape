@@ -19,9 +19,11 @@ module GrooveSharkSong
     def grooveshark_url(link)
       grooveshark_client.get_song_url_by_id(link) #whichever
     end
+    
   end
   
   module ClassMethods
+    
     def new_from_grooveshark(client, gs_song)
       s = Song.new(grooveshark_client: client, grooveshark_song: gs_song)
       s.title = gs_song.name
@@ -31,5 +33,4 @@ module GrooveSharkSong
       s.coverart = gs_song.artwork == '' ? STOCK_IMG : "http://images.gs-cdn.net/static/albums/#{gs_song.artwork}"
       return s
     end
-  end
 end
