@@ -1,5 +1,7 @@
 class SongsController < ApplicationController
   
+  STOCK_IMG = '/images/devil_horns.jpg'
+  
   def index
   end
 
@@ -14,6 +16,7 @@ class SongsController < ApplicationController
   end
 
   def create
+<<<<<<< HEAD
     @playlist = Playlist.find(params[:playlist_id])
     @playlist.songs.create(params[:song])
     
