@@ -1,0 +1,12 @@
+<div class="songcard">
+	<span>
+	<div class="coverart">
+			<img src=<%= interpreted_result.coverart %> />
+		</a>
+	</div>
+	<div class="songinfo">
+		<%= interpreted_result.artist %> - <%= interpreted_result.title %>
+	</div>
+	<%= button_to 'Add', {action: 'create', [@playlist, interpreted_result], :class => 'button tiny' %>
+	</span>
+</div>
