@@ -1,14 +1,10 @@
 <div class="songcard">
 	<div class="coverart">
 			<img src=<%= song.coverart %> />
-
 	</div>
 	<div class="songinfo">
 		<%= song.artist %> - <%= song.title %>
 	</div>
-  
-	<% Rails.logger.info(song.inspect) %>
-	
 	<% if song.present? %>
 		<%= form_for song, url: playlist_songs_path(@playlist)  do |f| %>
 			<%= f.hidden_field :title %>
