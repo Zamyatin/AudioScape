@@ -18,6 +18,8 @@ class SongsController < ApplicationController
   def create
     @playlist = Playlist.find(params[:playlist_id])
     @playlist.songs.create(params[:song])
+
+    redirect_to playlist
   end
 
   def destroy
@@ -35,7 +37,6 @@ class SongsController < ApplicationController
     @playlist = Playlist.find(params[:playlist_id])
     client = Grooveshark::Client.new({session: session[:groove_session]})
     results = client.search_songs(params[:songs][:title])
-
     @interpreted_results = results.map {|song| Song.new_from_grooveshark(client, song)}
   end
 

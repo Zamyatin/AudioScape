@@ -6,6 +6,8 @@ module GrooveSharkSong
 
   STOCK_IMG = '/images/devil_horns.jpg'
   
+  STOCK_IMG = '/images/devil_horns.jpg'
+  
   module InstanceMethods
 
     def grooveshark_client
@@ -13,7 +15,7 @@ module GrooveSharkSong
     end
   
     def grooveshark_song(link)
-      @groovershark_song || grooveshark_client.get_song_by_id(link) # wrong method
+      @groovershark_song ||= grooveshark_client.get_song_by_id(link) # wrong method
     end
       
     def grooveshark_url(link)
