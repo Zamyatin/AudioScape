@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  
+
   STOCK_IMG = '/images/devil_horns.jpg'
 
   def index
@@ -16,6 +16,7 @@ class SongsController < ApplicationController
   end
 
   def create
+
     @playlist = Playlist.find(params[:playlist_id])
     @playlist.songs.create(params[:song])
 
@@ -37,6 +38,7 @@ class SongsController < ApplicationController
     @playlist = Playlist.find(params[:playlist_id])
     client = Grooveshark::Client.new({session: session[:groove_session]})
     results = client.search_songs(params[:songs][:title])
+
     @interpreted_results = results.map {|song| Song.new_from_grooveshark(client, song)}
   end
 
@@ -48,10 +50,10 @@ class SongsController < ApplicationController
     #@search_results = client.search(query_type, input)
   end
   
-  
   private
     
     def song_params
       params.require(:song).permit.(:title, :artist, :link, :source, :coverart)
     end
+
 end
