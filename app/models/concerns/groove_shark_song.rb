@@ -18,8 +18,8 @@ module GrooveSharkSong
   
   module ClassMethods
     
-    def new_from_grooveshark(client, gs_song)
-      s = Song.new(grooveshark_client: client, grooveshark_song: gs_song)
+    def new_from_grooveshark(grooveshark_client, gs_song)
+      s = Song.new(gs_song)
       s.title = gs_song.name
       s.artist = gs_song.artist
       s.link = gs_song.id
