@@ -1,5 +1,8 @@
 class SongsController < ApplicationController
-
+  
+  STOCK_IMG = '/images/devil_horns.jpg'
+  
+  
   def index
 
   end
@@ -21,7 +24,7 @@ class SongsController < ApplicationController
       song.coverart = "http://images.gs-cdn.net/static/albums/#{params[:coverart]}"
       song.save
     else
-      song.coverart = "http://1.bp.blogspot.com/-NFIeRN1TNpU/Ukou19njwHI/AAAAAAAAARQ/iypdhkQVZvI/s200/7313935-heavy-metal-rock-and-roll-devil-horns-hand-sign-with-a-black-leather-studded-bracelet.jpg"
+      song.coverart = STOCK_IMG
       song.save
     end
 
@@ -41,10 +44,12 @@ class SongsController < ApplicationController
   end
 
   def search
-
-    client = Grooveshark::Client.new({session: session[:groove_session]})
-    @artist_search_results = client.search_songs(params[:songs][:title])
-
+    results = groove_session.search_songs(params[:songs][:title])
+    @g
   end
 
+  def song_search_by(query_type, input)
+    client = Grooveshark::Client.new({session: session[:groove_session]})
+    @search_results = client.search(query_type, input)
+  end
 end
