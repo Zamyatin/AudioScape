@@ -12,6 +12,7 @@ class PlaylistsController < ApplicationController
   end
  
   def show
+    @client = Grooveshark::Client.new({session: session[:groove_session]})
     @playlist = Playlist.find(params[:id])
     @client = Grooveshark::Client.new({session: session[:groove_session]})
     @picture = @playlist.art_url
