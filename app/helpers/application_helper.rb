@@ -21,4 +21,14 @@ module ApplicationHelper
       return random_songs
     end
   end
+  
+  def from_whence_i_came
+    ref_path = URI(request.referer).path
+    return ref_path
+  end
+  
+  def grooveshark_url(link)
+    groove_session.get_song_url_by_id(link) #whichever
+  end
+  
 end
