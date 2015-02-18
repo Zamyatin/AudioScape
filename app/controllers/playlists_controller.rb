@@ -1,8 +1,9 @@
 class PlaylistsController < ApplicationController
   respond_to :html, :js, :xml, :json
   
+  STOCK_IMG = '/images/devil_horns.jpg'
+  
   def index
-
   end
 
   def new
