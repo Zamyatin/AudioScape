@@ -1,13 +1,10 @@
 class SongsController < ApplicationController
   
   def index
-
   end
 
   def new
-
     render 'new', layout: false
-
   end
 
   def show
@@ -32,7 +29,6 @@ class SongsController < ApplicationController
   end
 
   def update
-
   end
 
   def search
@@ -49,4 +45,11 @@ class SongsController < ApplicationController
 
     #@search_results = client.search(query_type, input)
   end
+  
+  
+  private
+    
+    def song_params
+      params.require(:song).permit.(:title, :artist, :link, :source, :coverart)
+    end
 end
