@@ -1,7 +1,7 @@
 class SongsController < ApplicationController
   
   STOCK_IMG = '/images/devil_horns.jpg'
-  
+
   def index
   end
 
