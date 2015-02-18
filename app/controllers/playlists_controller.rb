@@ -1,8 +1,6 @@
 class PlaylistsController < ApplicationController
   respond_to :html, :js, :xml, :json
   
-  STOCK_IMG = '/images/devil_horns.jpg'
-  
   def index
 
   end
@@ -16,6 +14,7 @@ class PlaylistsController < ApplicationController
   end
 
   def show
+    @client = Grooveshark::Client.new({session: session[:groove_session]})
     @playlist = Playlist.find(params[:id])
     @client = Grooveshark::Client.new({session: session[:groove_session]})
     @listed_songs = @playlist.songs
