@@ -31,4 +31,5 @@ module GrooveSharkSong
       s.coverart = gs_song.artwork == '' ? STOCK_IMG : "http://images.gs-cdn.net/static/albums/#{gs_song.artwork}"
       return s
     end
+  end
 end
