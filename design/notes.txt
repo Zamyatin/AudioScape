@@ -1,0 +1,28 @@
+<ul>
+  <li><%= link_to "Delete Song", [@playlist, track], method: :delete %></li>
+  <li><%= link_to </li>
+  <li></li>
+</ul>
+
+
+<div class='song-cards'>
+	<% unless song.artwork == '' %>
+		<img class="searchart" src="http://images.gs-cdn.net/static/albums/<%= song.artwork %>" />
+	<% else %>
+		<img class="searchart" src="http://static7.depositphotos.com/1001655/707/v/950/depositphotos_7070089-Woman-with-music-notes.jpg" />
+	<%end%>
+	<br>
+	<p>&nbsp&nbsp<%= song.name %> - <%= song.artist %></p>
+	<br>
+	<br>
+  
+  THIS IS LOGIC FOR DELETE BUTTONS
+  
+	<% if @playlist %>
+		<%= button_to "Delete Song", [@playlist, track], method: :delete, :class =>'button' %>
+	<% else %>	
+		<%= button_to 'Add', {action: 'create', object: song, :class => 'button' %>
+	<%end%>
+	
+	
+	

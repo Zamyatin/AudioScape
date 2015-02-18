@@ -1,10 +1,7 @@
 <div class="search_songs">
-
 	<%= form_for :songs, url: {action: 'search'}, html: {method: 'get', :id => 'search-songs'} do |f| %>
 		<%= f.text_field :title, :placeholder => "Find a song" %>
 		<%= f.submit "Search", :class => 'button small' %>
-
 	<% end %>
 </div>
-
-<% render partial: '/songs/search_song_card', collection: @interpreted_results %>
+<%= render :partial => '/songs/search_song_card', :collection => @interpreted_results, :as => :song %>

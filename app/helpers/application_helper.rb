@@ -1,8 +1,7 @@
 module ApplicationHelper
 
   def groove_session
-    @groovy = Grooveshark::Client.new(session: session[:groove_session])
-    return @groovy
+    @grove_session ||= Grooveshark::Client.new(session: session[:groove_session])
   end
 
   def find_random_local_songs

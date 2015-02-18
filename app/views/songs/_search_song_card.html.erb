@@ -1,12 +1,22 @@
 <div class="songcard">
-	<span>
 	<div class="coverart">
-			<img src=<%= interpreted_result.coverart %> />
-		</a>
+			<img src=<%= song.coverart %> />
+
 	</div>
 	<div class="songinfo">
-		<%= interpreted_result.artist %> - <%= interpreted_result.title %>
+		<%= song.artist %> - <%= song.title %>
 	</div>
-	<%= button_to 'Add', {action: 'create', [@playlist, interpreted_result], :class => 'button tiny' %>
-	</span>
+  
+	<% Rails.logger.info(song.inspect) %>
+	
+	<% if song.present? %>
+		<%= form_for song, url: playlist_songs_path(@playlist)  do |f| %>
+			<%= f.hidden_field :title %>
+			<%= f.hidden_field :artist %>
+			<%= f.hidden_field :link %>
+			<%= f.hidden_field :source %>
+			<%= f.hidden_field :coverart %>
+			<%= f.submit 'Add', class: 'button tiny' %>
+		<% end %>
+	<% end %>
 </div>
