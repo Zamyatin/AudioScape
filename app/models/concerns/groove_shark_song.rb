@@ -3,9 +3,8 @@ module GrooveSharkSong
   
   attr_writer :grooveshark_client
   attr_writer :grooveshark_song  
+  attr_writer :grooveshark_song
 
-  STOCK_IMG = '/images/devil_horns.jpg'
-  
   STOCK_IMG = '/images/devil_horns.jpg'
   
   module InstanceMethods
