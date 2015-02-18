@@ -1,7 +1,8 @@
 module ApplicationHelper
 
   def groove_session
-    Grooveshark::Client.new(session: session[:groove_session])
+    @groovy = Grooveshark::Client.new(session: session[:groove_session])
+    return @groovy
   end
   
   def from_whence_i_came
