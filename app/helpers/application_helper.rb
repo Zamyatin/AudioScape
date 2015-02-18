@@ -27,4 +27,10 @@ module ApplicationHelper
     return ref_path
   end
   
+<<<<<<< HEAD
+=======
+  def grooveshark_url(link)
+    groove_session.get_song_url_by_id(link) #whichever
+  end
+>>>>>>> adding client query functionality to groove_session
 end
