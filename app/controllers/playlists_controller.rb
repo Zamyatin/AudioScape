@@ -1,5 +1,7 @@
 class PlaylistsController < ApplicationController
-
+  
+  STOCK_IMG = '/images/devil_horns.jpg'
+  
   def index
 
   end
@@ -11,12 +13,9 @@ class PlaylistsController < ApplicationController
 
   def show
     @playlist = Playlist.find(params[:id])
-    @client = Grooveshark::Client.new({session: session[:groove_session]})
-    @picture = @playlist.art_url
-    unless @picture
-      @picture = "http://1.bp.blogspot.com/-NFIeRN1TNpU/Ukou19njwHI/AAAAAAAAARQ/iypdhkQVZvI/s200/7313935-heavy-metal-rock-and-roll-devil-horns-hand-sign-with-a-black-leather-studded-bracelet.jpg"
-    end
+    @listed_songs = @playlist.songs
   end
+  
 
   def create
     @playlist = Playlist.new(title: params[:playlist][:title], user_id: current_user.id, art_url: params[:playlist][:art_url])

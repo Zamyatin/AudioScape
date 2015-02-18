@@ -4,21 +4,4 @@
 		<%= f.submit "Search", :class => 'button' %>
 	<% end %>
 </div>
-
-<% @artist_search_results.each do |song| %>
-	<div class='song-cards'>
-		<% unless song.artwork == '' %>
-			<img class="searchart" src="http://images.gs-cdn.net/static/albums/<%= song.artwork %>" />
-		<% else %>
-			<img class="searchart" src="http://static7.depositphotos.com/1001655/707/v/950/depositphotos_7070089-Woman-with-music-notes.jpg" />
-		<%end%>
-		<br>
-		<p>&nbsp&nbsp<%= song.name %> - <%= song.artist %></p>
-		<br>
-		<br>
-
-		<%= button_to 'Add', {action: 'create', song_id: song.id, song_name: song.name, song_artist: song.artist, coverart: song.artwork}, :class => 'button' %>
-	</div>
-<br><br><br><br><br>
-
-<%end%>
+<% render partial: '/songs/search_song_card', collection: @interpreted_results %>
