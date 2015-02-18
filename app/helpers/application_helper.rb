@@ -1,7 +1,6 @@
 module ApplicationHelper
 
   def groove_session
-
     @grove_session ||= Grooveshark::Client.new(session: session[:groove_session])
   end
 

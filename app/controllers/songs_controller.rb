@@ -16,14 +16,8 @@ class SongsController < ApplicationController
   end
 
   def create
-<<<<<<< HEAD
-
     @playlist = Playlist.find(params[:playlist_id])
     @playlist.songs.create(params[:song])
-=======
-    playlist = Playlist.find(params[:playlist_id])
-    playlist.songs.new(params[:interpreted_result])
->>>>>>> serious refactoring of controllers and partial rendering
     
     redirect_to playlist
   end
@@ -40,18 +34,10 @@ class SongsController < ApplicationController
   end
 
   def search
-<<<<<<< HEAD
     @playlist = Playlist.find(params[:playlist_id])
     client = Grooveshark::Client.new({session: session[:groove_session]})
     results = client.search_songs(params[:songs][:title])
-
     @interpreted_results = results.map {|song| Song.new_from_grooveshark(client, song)}
-=======
-    client = Grooveshark::Client.new({session: session[:groove_session]})
-    results = client.search_songs(params[:songs][:title])
-    @interpreted_results = results.each {|song| Song.new_from_grooveshark(song)}
-      
->>>>>>> serious refactoring of controllers and partial rendering
   end
 
   def song_search_by(query_type, input)
