@@ -1,8 +1,7 @@
-<% binding.pry %>
 <div class="songcard">
 	<span>
 	<div class="coverart">
-		<a href=<%= groove_session.get_song_url_by_id(song.link) %> >
+		<a class='song' href=<%= groove_session.get_song_url_by_id(song.link) %> >
 			<img src=<%= song.coverart %> />
 		</a>
 	</div>
