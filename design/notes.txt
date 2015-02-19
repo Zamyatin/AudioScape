@@ -26,3 +26,41 @@
 	
 	
 	
+NOTES ON DEMO:
+
+- TAG CURRENT LOCATION (icon with a pin)
+- subtle changes on color on background of card for playing song
+- make links red
+- songcards need to go across entirely
+- choose a specific display font
+- use header tags and style them appropriately
+
+- set logic on Playlist.show to hide the div listing available playlists until @playlists has playlists
+- clean up song card: Title on top, artist below it - make "delete song" a link, not a button.
+- Use a display font on on "My Playlists" (PS, change it to MY PLAYLISTS)... 
+- PICK HOW WE ARE GOING TO DEMO, then OPTIMIZE FOR THAT SCENARIO!
+- Consistent padding on user's landing page - including j
+- Add a bottom to the body or the container to avoid 
+- playlist header neesd to look like header
+- get rid of turquoise coloring between song cards
+- make "delete" a link in song cards
+- get a MORE DEFAULT looking image for default image
+- pull random coverart from albums inside the playlists to 
+- design fonts for mobile 
+- create playlist
+
+
+
+BUGS: 
+
+- no deletion on someone else's playlist
+- header is forced down
+- bar above player but below delete/tag buttons 
+
+
+VISUAL HIERRARCHY OF PLAYLIST
+
+- full length
+- song title BOLD/BIGGER than other elements
+- artist under title, smaller text
+- delete song (grey if pink)
