@@ -153,7 +153,7 @@ $(document).ready(function() {
       })
   })
 
-  var minUpdateUserDistance = 0.01 //km
+  var minUpdateUserDistance = 1.0 //km
   var userId = $("div[style='display:none']").attr('id')
   var firebaseRef = new Firebase("https://blinding-fire-43.firebaseio.com/");
   var geo_options = {
