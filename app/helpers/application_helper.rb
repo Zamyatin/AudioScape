@@ -4,7 +4,6 @@ module ApplicationHelper
     @grove_session ||= Grooveshark::Client.new(session: session[:groove_session])
   end
 
-<<<<<<< HEAD
   def find_random_local_songs
     random_songs = []
     if current_users_around.empty?
@@ -31,7 +30,4 @@ module ApplicationHelper
   def grooveshark_url(link)
     groove_session.get_song_url_by_id(link) #whichever
   end
-  
-=======
->>>>>>> WIP
 end
